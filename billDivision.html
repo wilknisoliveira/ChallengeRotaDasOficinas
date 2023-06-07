@@ -4,9 +4,99 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bill Division</title>
 </head>
 <body>
-    
+    <header>
+        <h1>Bill Division</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li>Main</li>
+            <li>First Challenge</li>
+            <li>Second Challenge</li>
+            <li>Third Challenge</li>
+        </ul>
+    </nav>
+
+    <main>
+        <div>
+            Products list
+            <br>
+            <select name="productList" id="productList" size="15"></select>
+            <br>
+            
+            <label for="productInput">Product</label>
+            <br>
+            <input type="text" name="productInput" id="productInput">
+            <br>
+            <label for="priceInput">Price</label>
+            <br>
+            <input type="text" name="priceInput" id="priceInput">
+            <br>
+            <label for="quantityInput">Quantity</label>
+            <br>
+            <input type="text" name="quantityInput" id="quantityInput">
+            <br>
+            
+            <button id="productAddBtn">Add</button>
+        </div>
+        <br>
+        <div>
+            Clients list
+            <br>
+            <select name="clientList" id="clientList" size="15"></select>
+            <br>
+            <label for="clientInput">Client</label>
+            <br>
+            <input type="text" name="clientInput" id="clientInput">
+            <br>
+            <label for="payFeeSelect">Pay fee?</label>
+            <br>
+            <select name="payFeeSelect" id="payFeeSelect">
+                <option>Yes</option>
+                <option>No</option>
+            </select>
+            <br>
+            <button id="clientAddBtn">Add</button>
+        </div>
+        <br>
+        <div>
+            Consumption list
+            <br>
+            <select name="consumptionList" id="consumptionList" size="15"></select>
+
+            <br>
+            <label for="consumptionProductSelect">Product</label>
+            <br>
+            <select name="consumptionProductSelect" id="consumptionProductSelect"></select>
+            <br>
+
+            <label for="consumptionClientSelect">Client</label>
+            <br>
+            <select name="consumptionClientSelect" id="consumptionClientSelect"></select>
+            <br>
+
+            <button id="consumptionAddBtn">Add</button>
+        </div>
+
+
+        <button id="divisionBtn">Division</button>
+        <div>
+            Bill division list
+            <br>
+            <select name="divisionList" id="divisionList" size="15"></select>
+        </div>
+    </main>
+
+    <footer>
+        Thanks for your time! All that I have is a bigger desire to learn!<br>
+
+        wilknisoliveira@gmail.com | (88) 99292-8362
+    </footer>
+
+ 
+    <script src="./billDivision.js" type="module" charset="UTF-8"></script>
 </body>
 </html>

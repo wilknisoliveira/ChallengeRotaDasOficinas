@@ -36,5 +36,9 @@ export class Client {
         return this.products[whichProduct].name
     }
 
+    getAllProducts() {
+        return this.products
+    }
+
     
 }

@@ -7,6 +7,7 @@ let priceInput = document.querySelector('input#priceInput')
 let productList = document.querySelector('select#productList')
 let productAddBtn = document.querySelector('button#productAddBtn')
 let quantityInput = document.querySelector('input#quantityInput')
+let productDeleteBtn = document.querySelector('button#productDeleteBtn')
 let product = []
 
 //Client list variables
@@ -14,6 +15,7 @@ let clientList = document.querySelector('select#clientList')
 let clientAddBtn = document.querySelector('button#clientAddBtn')
 let clientInput = document.querySelector('input#clientInput')
 let payFeeSelect = document.querySelector('select#payFeeSelect')
+let clientDeleteBtn = document.querySelector('button#clientDeleteBtn')
 let client = []
 
 //Consumption list variables
@@ -21,6 +23,7 @@ let consumptionList = document.querySelector('select#consumptionList')
 let consumptionAddBtn = document.querySelector('button#consumptionAddBtn')
 let consumptionProductSelect = document.querySelector('select#consumptionProductSelect')
 let consumptionClientSelect = document.querySelector('select#consumptionClientSelect')
+let consumptionDeleteBtn = document.querySelector('button#consumptionDeleteBtn')
 
 //Division variables
 let divisionBtn = document.querySelector('button#divisionBtn')
@@ -31,6 +34,11 @@ productAddBtn.addEventListener('click', insertProduct)
 clientAddBtn.addEventListener('click', insertClient)
 consumptionAddBtn.addEventListener('click', insertConsumption)
 divisionBtn.addEventListener('click', division)
+productDeleteBtn.addEventListener('click', ()=>{deleteItem(0)})
+clientDeleteBtn.addEventListener('click', ()=>{deleteItem(1)})
+consumptionDeleteBtn.addEventListener('click', ()=>{deleteItem(2)})
+
+let selectItemGlobal = []
 
 function insertProduct() {
     for(let i=0;i<quantityInput.value;i++){
@@ -58,7 +66,7 @@ function insertClient() {
     client.push(new Client(clientInput.value, payFee))
 
     let option = document.createElement('option')
-    option.innerHTML = clientInput.value
+    option.innerHTML = clientInput.value + ': tax? ' + payFeeSelect.value
     clientList.appendChild(option) 
 
     //Creating the dropdown list
@@ -99,4 +107,23 @@ function division(){
         divisionList.appendChild(option)
     }
 
+}
+
+function deleteItem(list){
+    selectItemGlobal[0] = productList.selectedIndex
+    selectItemGlobal[1] = clientList.selectedIndex
+    selectItemGlobal[2] = consumptionList.selectedIndex
+
+    switch (list) {
+        case 0:
+            console.log(client[0].getAllProducts())
+            console.log(product.length)
+
+            productList.remove(selectItemGlobal[0])
+            product.splice(selectItemGlobal[0],1)
+            
+            console.log(client[0].getAllProducts())
+            console.log(product.length)
+            break;
+    }
 }

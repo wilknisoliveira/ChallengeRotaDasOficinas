@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bill Division</title>
     <link rel="stylesheet" href="./css/billDivision.css">
+    <link rel="stylesheet" href="./css/challenge.css">
 </head>
 <body>
     <header>
@@ -37,11 +38,11 @@
             <br>
             <label for="priceInput">Price</label>
             <br>
-            <input type="text" name="priceInput" id="priceInput">
+            <input type="number" name="priceInput" id="priceInput">
             <br>
             <label for="quantityInput">Quantity</label>
             <br>
-            <input type="text" name="quantityInput" id="quantityInput">
+            <input type="number" name="quantityInput" id="quantityInput">
             <br>
             
             <button id="productAddBtn">Add</button>
@@ -58,7 +59,6 @@
             <input type="text" name="clientInput" id="clientInput">
             <br>
             <label for="payFeeSelect">Pay 10% tax?</label>
-            <br>
             <select name="payFeeSelect" id="payFeeSelect">
                 <option>Yes</option>
                 <option>No</option>
@@ -86,17 +86,20 @@
 
             <button id="consumptionAddBtn">Add</button>
             <button id="consumptionDeleteBtn">Delete</button>
+            <br>
+            <br>
         </div>
 
-
-        <button id="divisionBtn">Division</button>
         <div>
             Bill division list
             <br>
             <select class="lists" name="divisionList" id="divisionList" size="15"></select>
+            <br>
+            <br>
+            <button id="divisionBtn">Division</button>
         </div>
     </main>
-
+    <br>
     <footer>
         Thanks for your time! All that I have is a bigger desire to learn!<br>
 

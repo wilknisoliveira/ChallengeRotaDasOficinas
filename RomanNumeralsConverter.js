@@ -53,8 +53,10 @@ function validationRomanArabic(entry){
     //Use regex to define the roman pattern
     var romanValidation = /^(M{0,3})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/
 
-    if(entry.match(romanValidation))
+    if(entry.match(romanValidation)){
+        resultDiv.innerHTML = '--'
         return true
+    }
     else{
         resultDiv.innerHTML = 'Number syntax error'
         return false

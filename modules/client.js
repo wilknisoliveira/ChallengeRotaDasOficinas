@@ -32,12 +32,16 @@ export class Client {
         this.products.push(product)
     }
 
-    getProducts(whichProduct) {
-        return this.products[whichProduct].name
+    getProducts(index) {
+        return this.products[index]
     }
 
     getAllProducts() {
         return this.products
+    }
+
+    deleteProduct(id){
+        this.products.splice(id, 1)
     }
 
     

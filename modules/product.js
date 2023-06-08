@@ -18,11 +18,19 @@ export class Product {
         this.clients.push(client)
     }
 
-    getClients(whichClient) {
-        return this.clients[whichClient]
+    getClients(id) {
+        return this.clients[id]
     }
 
     getAllClients() {
         return this.clients
+    }
+
+    getId(){
+        return this.id
+    }
+
+    deleteClient(id){
+        this.clients.splice(id, 1)
     }
 }

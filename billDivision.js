@@ -85,6 +85,13 @@ function insertConsumption() {
 }
 
 function division(){
+    while(divisionList.length>0)
+        divisionList.remove(0)
+    
+    for(let i=0;i<client.length;i++){
+        client[i].setBill(0) 
+    }
+
     for(let i=0;i<product.length;i++){
         let bill = product[i].getPrice() / product[i].getAllClients().length
         for(let j=0;j<product[i].getAllClients().length;j++){
@@ -114,16 +121,53 @@ function deleteItem(list){
     selectItemGlobal[1] = clientList.selectedIndex
     selectItemGlobal[2] = consumptionList.selectedIndex
 
+    let id
     switch (list) {
         case 0:
-            console.log(client[0].getAllProducts())
-            console.log(product.length)
-
+            id = product[selectItemGlobal[0]].getId()
+            //delete suspended list
             productList.remove(selectItemGlobal[0])
             product.splice(selectItemGlobal[0],1)
-            
-            console.log(client[0].getAllProducts())
-            console.log(product.length)
+            consumptionProductSelect.remove(selectItemGlobal[0],1)
+
+            for(let i=0;i<client.length;i++){
+                for(let j=0;j<client[i].getAllProducts().length;j++){
+                    if(client[i].getProducts(j).getId()==id){
+                        client[i].deleteProduct(j)
+                    }
+                }
+            }
+            updateConsumptionList()
             break;
+        case 1:
+            id = client[selectItemGlobal[1]].getId()
+
+            clientList.remove(selectItemGlobal[1])
+            client.splice(selectItemGlobal[1],1)
+            consumptionClientSelect.remove(selectItemGlobal[0],1)
+            
+            for(let i=0;i<product.length;i++){
+                for(let j=0;j<product[i].getAllClients().length;j++){
+                    if(product[i].getClients(j).getId()==id){
+                        product[i].deleteClient(j)
+                    }
+                }
+            }
+            updateConsumptionList()
+            break;
+    }
+}
+
+function updateConsumptionList(){
+    while(consumptionList.length>0){
+        consumptionList.remove(0)
+    }
+    
+    for(let i=0;i<product.length;i++){
+        for(let j=0;j<product[i].getAllClients().length;j++){
+            let option = document.createElement('option')
+            option.innerHTML =  product[i].getName() + ': ' + product[i].getClients(j).getName() 
+            consumptionList.appendChild(option) 
+        }
     }
 }
